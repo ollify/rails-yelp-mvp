@@ -10,13 +10,13 @@ class ReviewsController < ApplicationController
     @review.restaurant = @restaurant
     @review.save
 
-    redirect_to restaurants_path
+    redirect_to restaurant_path(@restaurant)
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:content, :rating)
   end
 
   def set_restaurant
